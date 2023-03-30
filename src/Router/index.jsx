@@ -2,7 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../views/Home/Home";
 import Pokedex from "../views/Pokedex/Pokedex";
+import PokemonDetail from "../views/PokemonDetail/PokemonDetail";
 import ProtectedRoute from "../views/Protected/ProtectedRoute";
+import { pokedexLoader } from "./Loaders/pokedexLoader";
 
 export const router = createBrowserRouter([
   {
@@ -10,9 +12,14 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home></Home> },
       {
-       
         element: <ProtectedRoute></ProtectedRoute>,
-        children: [{ path: "pokedex", element: <Pokedex></Pokedex> }],
+        children: [
+          { path: "pokedex", element: <Pokedex></Pokedex>, loader: pokedexLoader},
+          {
+            path: "pokemon-detail/:id",
+            element: <PokemonDetail></PokemonDetail>,
+          },
+        ],
       },
     ],
   },

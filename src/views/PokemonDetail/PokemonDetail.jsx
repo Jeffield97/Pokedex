@@ -1,27 +1,24 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { getDataPokemon } from "../../utils/getDataPokemon";
-import "./PokeCard.css";
+import { useParams } from "react-router-dom";
+import getPokemonById from "../../utils/getPokemonById";
+import "./PokemonDetail.css";
 
-const PokeCard = ({ pokemon }) => {
+const PokemonDetail = () => {
   const [pokemonData, setpokemonData] = useState(null);
-  const navigate = useNavigate();
-  const handleClickCard = () => {
-    navigate(`/pokemon-detail/${pokemonData.id}`);
-  };
-  const loadDataPokemon = async () => {
-    const res = await getDataPokemon(pokemon);
-    setpokemonData(res);
+  const { id } = useParams();
+  const loadPokemonData = async () => {
+    const pokemon = await getPokemonById(id);
+    setpokemonData(pokemon);
+    console.log(pokemon);
   };
   useEffect(() => {
-    loadDataPokemon();
+    loadPokemonData();
   }, []);
   return (
     <>
       {pokemonData && (
-        <div className="card" onClick={handleClickCard}>
-          <h5>{pokemon.name}</h5>
+        <div className="card">
+          <h5>{pokemonData.name}</h5>
           <img
             src={
               pokemonData?.sprites.front_default ||
@@ -44,4 +41,4 @@ const PokeCard = ({ pokemon }) => {
   );
 };
 
-export default PokeCard;
+export default PokemonDetail;
