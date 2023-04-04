@@ -5,11 +5,10 @@
 :root{
     font-family: 'Blank Idea', sans-serif;
 }
-body{
-    background-color: rgb(24, 24, 24);
-    height: 100%;
-}
 
+body{
+    min-height: 100%;
+}
 .text-shadow{
     color: #f9d93a;
     text-shadow:

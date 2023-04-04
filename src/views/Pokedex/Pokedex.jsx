@@ -28,8 +28,8 @@ const Pokedex = () => {
   // }, []);
   return (
     <>
-      <h2 className="text-3xl">Bienvenido <span className="text-yellow-300">{user}</span>, aquí podrás encontrar tu pokemon favorito.</h2>
-      <div className="my-10 text-2xl">
+      <h2 className="text-3xl text-slate-50">Bienvenido <span className="text-yellow-300">{user}</span>, aquí podrás encontrar tu pokemon favorito.</h2>
+      <div className="my-10 text-2xl text-slate-50">
         <Form action="">
           <span>Filter by name </span>
           <input
@@ -54,7 +54,7 @@ const Pokedex = () => {
           <button className="btn btn-sm bg btn-outline">Search</button>
         </Form>
       </div>
-      <div>
+      <div className="text-slate-50">
         {pokemonPagination.pages.map((page) => (
           <button
             key={page}

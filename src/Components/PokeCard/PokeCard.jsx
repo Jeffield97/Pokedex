@@ -21,7 +21,7 @@ const PokeCard = ({ pokemon }) => {
     <>
       {pokemonData && (
         <div className="card overflow-hidden" onClick={handleClickCard}>
-          <h5 className="bg-slate-800 text-2xl">{pokemon.name}</h5>
+          <h5 className="bg-slate-800 text-2xl text-slate-50">{pokemon.name}</h5>
           <img
             src={
               pokemonData?.sprites.front_default ||

@@ -4,7 +4,7 @@ import { UserContextProvider } from "./Context/UserContext";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App ">
       <UserContextProvider>
         <Outlet></Outlet>
       </UserContextProvider>
