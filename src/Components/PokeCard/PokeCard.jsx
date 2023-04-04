@@ -35,7 +35,7 @@ const PokeCard = ({ pokemon }) => {
             {pokemonData.stats.map((stat) => (
               <section key={stat.stat.name}>
                 <h3 className="text-cyan-500 inline">{`${stat.stat.name.toUpperCase()}: `}</h3>
-                <p className=" text-slate-600 inline">{stat.base_stat}</p>
+                <p className=" text-slate-300 inline">{stat.base_stat}</p>
               </section>
             ))}
           </section>

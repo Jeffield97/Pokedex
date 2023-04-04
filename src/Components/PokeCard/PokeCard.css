@@ -5,6 +5,7 @@
   max-width: 20%;
   min-width: 20%;
   display: inline-block;
+  background-color: #1a1a1a;
 }
 .card:hover {
   cursor: pointer;
