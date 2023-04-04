@@ -28,8 +28,8 @@ const Pokedex = () => {
   // }, []);
   return (
     <>
-      <h3>Bienvenido {user}, aquí podrás encontrar tu pokemon favorito.</h3>
-      <div>
+      <h2 className="text-3xl">Bienvenido <span className="text-yellow-300">{user}</span>, aquí podrás encontrar tu pokemon favorito.</h2>
+      <div className="my-10 text-2xl">
         <Form action="">
           <span>Filter by name </span>
           <input
@@ -51,7 +51,7 @@ const Pokedex = () => {
               <option key={type.name}>{type.name}</option>
             ))}
           </select>
-          <button>Search</button>
+          <button className="btn btn-sm bg btn-outline">Search</button>
         </Form>
       </div>
       <div>

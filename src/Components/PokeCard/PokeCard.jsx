@@ -20,21 +20,22 @@ const PokeCard = ({ pokemon }) => {
   return (
     <>
       {pokemonData && (
-        <div className="card" onClick={handleClickCard}>
-          <h5>{pokemon.name}</h5>
+        <div className="card overflow-hidden" onClick={handleClickCard}>
+          <h5 className="bg-slate-800 text-2xl">{pokemon.name}</h5>
           <img
             src={
               pokemonData?.sprites.front_default ||
               pokemonData?.sprites.back_default
             }
             alt="image"
+            className="mx-auto w-3/6"
           />
-          <h5>{pokemonData.types[0].type.name.toUpperCase()}</h5>
-          <section>
+          <h5 className="text-2xl text-slate-300">{pokemonData.types[0].type.name.toUpperCase()}</h5>
+          <section className="text-start mx-5 text-xl">
             {pokemonData.stats.map((stat) => (
               <section key={stat.stat.name}>
-                <h5>{stat.stat.name.toUpperCase()}</h5>
-                <p>{stat.base_stat}</p>
+                <h3 className="text-cyan-500 inline">{`${stat.stat.name.toUpperCase()}: `}</h3>
+                <p className=" text-slate-600 inline">{stat.base_stat}</p>
               </section>
             ))}
           </section>
