@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useLoaderData, Form } from "react-router-dom";
+import { useLoaderData, Form, useNavigate } from "react-router-dom";
 import PokeCard from "../../Components/PokeCard/PokeCard";
 import { UserContext } from "../../Context/UserContext";
 import { usePagination } from "../../hooks/usePagination";
@@ -11,6 +11,7 @@ const Pokedex = () => {
   const [pokemonType, setpokemonType] = useState("");
   const { data, types } = useLoaderData();
   const pokemonPagination = usePagination(data, 50);
+  const navigate = useNavigate()
 
   const handleChangeInput = (e) => {
     const newText = e.target.value;
@@ -22,14 +23,16 @@ const Pokedex = () => {
     setpokemonType(newType);
     setpokemonName("");
   };
-  // useEffect(() => {
-  //   loadData();
-  //   loadType();
-  // }, []);
+  const handleClickCloseSesion=(e)=>{
+    localStorage.removeItem('Username')
+    navigate('/')
+  }
+  
   return (
     <>
+    <button className="btn lg:absolute mb-5 left-5 text-blue-400  hover:cursor-pointer hover:text-red-500" onClick={handleClickCloseSesion}>Cerrar sesion</button>
       <h2 className="text-3xl text-slate-50">Bienvenido <span className="text-yellow-300">{user}</span>, aquí podrás encontrar tu pokemon favorito.</h2>
-      <div className="my-10 text-2xl text-slate-50">
+      <div className="my-10 text-xl text-slate-50">
         <Form action="">
           <span>Filter by name </span>
           <input
@@ -43,6 +46,7 @@ const Pokedex = () => {
             id=""
             onChange={handleChangeSelect}
             value={pokemonType}
+            className="mx-5"
           >
             <option value="" disabled>
               --Select type--

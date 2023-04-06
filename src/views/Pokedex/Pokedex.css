@@ -1,5 +1,8 @@
 .bg-current {
   background-color: rgb(108, 116, 116);
+  width: 2%;
+  height: 2%;
+  border-radius: 50%;
 }
 .btn-page {
   margin:  10px;

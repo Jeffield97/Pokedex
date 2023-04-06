@@ -14,7 +14,6 @@ const PokemonDetail = () => {
   const loadPokemonData = async () => {
     const pokemon = await getPokemonById(id);
     setpokemonData(pokemon);
-    console.log(pokemon);
   };
   
   useEffect(() => {
